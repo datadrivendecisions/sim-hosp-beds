@@ -1,9 +1,14 @@
+
 function setup() {
     let canvas = createCanvas(1200, 800);
     canvas.parent('canvas-container');
   }
-  
+
   function draw() {
+    let c = 0;
+    roomcolors  = ["#E6E6FA", "#E6E6FA", "#E6E6FA", "#F0FFF0", "#F0FFF0", "#AFEEEE"];
+    specialism = ["Longgeneeskunde", "Longgeneeskunde", "Longgeneeskunde", "Interne Geneeskunde", "Interne Geneeskunde", "Oncologie"];
+  
     background('LightCyan');
   
     // Dimensions for each room
@@ -15,20 +20,21 @@ function setup() {
   
     // Draw 6 rooms: 3 on top, 3 on bottom
     for (let y = 0; y < 2; y++) { // Two rows
-        for (let x = 0; x < 3; x++) { // Three columns
+        for (let x = 0; x < 3; x++) { // Three columns;
           let posX = x * roomWidth + walls * (x + 1);
           let posY = y * roomHeight + corridor * (y + 1);
-          stroke(0); // Black color for the borders
-          fill('white'); // White color for the rooms
+          stroke(0); // Border color for the rooms
+          fill(roomcolors[c]); // Fill color for the rooms
           rect(posX, posY, roomWidth, roomHeight);
           fill('deepskyblue'); // Color for label text fill
           stroke('deepskyblue') // Color for label text border
           textSize(24); // Label font size
-          let s = 'Room'; // Text for label
-          text(s, posX + roomWidth / 2.3, posY + 3.5 * roomHeight / 4);
+          let s = specialism[c]; // Text for label
+          text(s, posX + roomWidth / 3, posY + 3.5 * roomHeight / 4);
 
           // Add beds
           drawBeds(posX, posY, roomWidth, roomHeight);
+          c = c+1;
         }
       }
   }
