@@ -133,7 +133,7 @@ function startSimulation() {
     // Update data for each specialism
     chartData.labels.push(chartData.labels.length + 1);
     specialism.forEach((_, specialismIndex) => {
-        let difference = demand[specialismIndex] - capacities[specialismIndex];
+        let difference = capacities[specialismIndex] - demand[specialismIndex];
         chartData.datasets[specialismIndex].data.push(difference);
     });
 
