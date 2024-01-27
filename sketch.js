@@ -14,6 +14,10 @@ let chartData = {
     }))
 };
 
+document.getElementById('speed-slider').oninput = function() {
+    document.getElementById('slider-value').textContent = this.value + 'ms';
+}
+
 function setup() {
   let canvas = createCanvas(1200, 800);
   canvas.parent('canvas-container');
@@ -116,10 +120,11 @@ function drawPillow(x, y, w, h) {
 
 function startSimulation() {
     const simulationCount = parseInt(document.getElementById('simulation-count').value);
+    const delay = parseInt(document.getElementById('speed-slider').value);
     for (let i = 0; i < simulationCount; i++) {
       setTimeout(function() {
         runSimulation();
-      }, 500 * i); // Delay seconds * i
+      }, delay * i); // Delay seconds * i
     }
   }
   
