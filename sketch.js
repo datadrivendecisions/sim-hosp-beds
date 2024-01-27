@@ -14,10 +14,6 @@ let chartData = {
     }))
 };
 
-document.getElementById('speed-slider').oninput = function() {
-    document.getElementById('slider-value').textContent = this.value + 'ms';
-}
-
 function setup() {
   let canvas = createCanvas(1200, 800);
   canvas.parent('canvas-container');
