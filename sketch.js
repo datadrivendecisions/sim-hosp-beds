@@ -1,16 +1,17 @@
-const roomColors = ["#E6E6FA", "#F0FFF0", "#AFEEEE"];
+const roomColors = ["Lavender", "PaleGreen", "PaleTurquoise"];
 const specialism = ["Lung", "Internal", "Oncology"];
 const capacities = [18, 12, 6]; // Capacities for each specialism
 const demand = []; // Demand for beds for each specialism
 const specialismMeans = [14, 10, 5]; // Example mean values for each specialism
+const specialismColors = ["Plum", "LightGreen", "Turquoise"]; // Colors for the lines
 let chartData = {
     labels: [],
-    datasets: [{
-        label: 'Difference between Capacity and Demand',
+    datasets: specialism.map((spec, index) => ({
+        label: spec,
         data: [],
-        borderColor: 'tomato',
-        backgroundColor: 'tomato',
-    }]
+        borderColor: specialismColors[index],
+        backgroundColor: specialismColors[index],
+    }))
 };
 
 function setup() {
@@ -118,29 +119,27 @@ function startSimulation() {
     for (let i = 0; i < simulationCount; i++) {
       setTimeout(function() {
         runSimulation();
-      }, 1000 * i); // Delay of 1000ms (1 second) * i
+      }, 500 * i); // Delay seconds * i
     }
   }
   
   function runSimulation() {
     // Resample demand for each specialism
     for (let i = 0; i < specialism.length; i++) {
-      demand[i] = poissonRandom(specialismMeans[i]);
-    }
-  
-    let totalDifference = 0;
-    for (let i = 0; i < specialism.length; i++) {
-        let difference = capacities[i] - demand[i];
-        totalDifference += difference;
+        demand[i] = poissonRandom(specialismMeans[i]);
     }
 
-    // Add data to chartData
+    // Update data for each specialism
     chartData.labels.push(chartData.labels.length + 1);
-    chartData.datasets[0].data.push(totalDifference);
+    specialism.forEach((_, specialismIndex) => {
+        let difference = demand[specialismIndex] - capacities[specialismIndex];
+        chartData.datasets[specialismIndex].data.push(difference);
+    });
 
     updateSpecialismTable();
     updateChart();
-  }
+}
+
 
 function updateSpecialismTable() {
     const tableBody = document.getElementById('specialism-table').getElementsByTagName('tbody')[0];
