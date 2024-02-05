@@ -28,7 +28,52 @@
   </head>
   <body>
     <div class="container-fluid">
-      <h1>Hospital demo</h1>
+      <div class="background-description p-3 mb-5 bg-light border rounded">
+        <h2>About This Project</h2>
+        <p>
+          In our hospital, nursing departments experience a high turnover of patients across various specialties daily. Currently, we operate combined departments, where different specialties such as Pulmonology, Internal Medicine, and Oncology share the same unit. This arrangement leverages the overlapping skills of our nursing staff across these disciplines. However, the allocation of beds and rooms is based on a fixed bed plan calculated from the expected care demand throughout the year. This project aims to explore the efficiency of this fixed allocation versus a more flexible room assignment strategy that adapts to actual patient inflow and specialty needs.
+        </p>
+        <p>
+          The goal is to simulate and assess the impact of flexible room allocation on our ability to meet patient demand and optimize the use of our nursing staff's broad skills. By simulating different scenarios, we hope to identify strategies that improve patient care and operational efficiency. Your task is to develop a model that simulates this environment, using the provided starter code as a foundation for your project.
+        </p>
+      </div>
+      <h2>Hospital demo</h2>
+      <!-- Trigger Button for Starter Code Description Modal -->
+<button type="button" class="btn btn-success my-5" data-bs-toggle="modal" data-bs-target="#starterCodeDescriptionModal">
+  View Starter Code Description
+</button>
+
+<!-- Starter Code Description Modal -->
+<div class="modal fade" id="starterCodeDescriptionModal" tabindex="-1" aria-labelledby="starterCodeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="starterCodeModalLabel">Starter Code Description</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h4>Overview</h4>
+        <p>The simulation uses the p5.js library for drawing and visualization, Bootstrap for styling, and Chart.js for displaying data trends over time. It is structured into a web page that includes interactive elements such as input fields for the number of simulations and simulation speed, a button to start the simulation, and a visual representation of hospital rooms and patient demand.</p>
+        <p>Key components of the simulation include:</p>
+        <ul>
+          <li><strong>Specialties and Capacities:</strong> The hospital department is modeled to cater to three specialties: Pulmonology, Internal Medicine, and Oncology. Each specialty has a predefined capacity indicating the number of beds allocated to it (e.g., 18 for Pulmonology, 12 for Internal Medicine, and 6 for Oncology).</li>
+          <li><strong>Demand Generation:</strong> Demand for beds in each specialty is generated using a Poisson random distribution, reflecting the stochastic nature of patient arrivals. This randomness is meant to simulate the real-world variability in patient inflow.</li>
+          <li><strong>Room Visualization:</strong> The web page dynamically visualizes hospital rooms, using different colors to distinguish between the specialties. The layout includes a total of six rooms displayed across two rows, with the capacity to adjust the number of beds as per the simulated demand.</li>
+          <li><strong>Bed Allocation:</strong> Beds within each room are visually represented, with their availability based on the current demand for each specialty. This part of the simulation is crucial for understanding how flexible allocation could potentially optimize bed usage compared to a fixed allocation strategy.</li>
+          <li><strong>Simulation Control:</strong> Users can control the simulation by setting the number of simulations to run and adjusting the speed of the simulation. This interactivity allows for experimentation with different scenarios and observing the outcomes in real-time.</li>
+          <li><strong>Data Presentation:</strong> The simulation updates a table showing the demand, capacity, and difference (capacity minus demand) for each specialty. Additionally, a line chart is updated in real-time to visually track the differences over the course of the simulation, providing insights into how well patient demand is being met across specialties.</li>
+        </ul>
+        <h4>Objective</h4>
+        <p>The primary objective of this simulation is to investigate whether adhering strictly to rooms designated for specific specialties is more effective than adopting a flexible room allocation approach based on current patient needs. By simulating this environment, the project seeks to uncover potential benefits in terms of improved patient care and operational efficiency within the hospital's nursing departments.</p>
+        <p>This simulation provides a hands-on tool for students to explore complex healthcare operational issues, encouraging them to analyze the effects of different bed allocation strategies and their potential impact on patient satisfaction and resource utilization.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
       <div class="row">
         <div class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
           <div

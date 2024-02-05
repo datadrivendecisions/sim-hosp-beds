@@ -1,5 +1,5 @@
 const roomColors = ["Lavender", "PaleGreen", "PaleTurquoise"];
-const specialism = ["Lung", "Internal", "Oncology"];
+const specialism = ["Pulmonology", "Internal", "Oncology"];
 const capacities = [18, 12, 6]; // Capacities for each specialism
 const demand = []; // Demand for beds for each specialism
 const specialismMeans = [14, 10, 5]; // Example mean values for each specialism
