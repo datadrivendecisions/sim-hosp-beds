@@ -36,6 +36,8 @@
         <p>
           The goal is to simulate and assess the impact of flexible room allocation on our ability to meet patient demand and optimize the use of our nursing staff's broad skills. By simulating different scenarios, we hope to identify strategies that improve patient care and operational efficiency. Your task is to develop a model that simulates this environment, using the provided starter code as a foundation for your project.
         </p>
+        <h4>URL to demo</h4>
+        <img src="qr.png" width="15%" alt="URL to demo" class="img-fluid">
       </div>
       <h2>Hospital demo</h2>
       <!-- Trigger Button for Starter Code Description Modal -->
@@ -66,6 +68,7 @@
         <h4>Objective</h4>
         <p>The primary objective of this simulation is to investigate whether adhering strictly to rooms designated for specific specialties is more effective than adopting a flexible room allocation approach based on current patient needs. By simulating this environment, the project seeks to uncover potential benefits in terms of improved patient care and operational efficiency within the hospital's nursing departments.</p>
         <p>This simulation provides a hands-on tool for students to explore complex healthcare operational issues, encouraging them to analyze the effects of different bed allocation strategies and their potential impact on patient satisfaction and resource utilization.</p>
+        
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -86,10 +89,16 @@
               class="form-control"
               placeholder="Number of Simulations"
             />
-            <!-- Slider for controlling simulation speed -->
-            <label for="speed-slider" class="form-label mt-3">Simulation Speed</label>
-            <input type="range" class="form-range" min="0" max="1000" step="100" value="500" id="speed-slider">
-            <div id="slider-value">500ms</div>
+            <!-- Slider for controlling simulation speed with labels -->
+            <div class="mt-3">
+              <label for="speed-slider" class="form-label">Simulation Speed</label>
+              <div class="d-flex align-items-center">
+                  <span class="me-2">Fast</span>
+                  <input type="range" class="form-range flex-grow-1" min="0" max="1000" step="100" value="500" id="speed-slider">
+                  <span class="ms-2">Slow</span>
+              </div>
+              <div id="slider-value" class="text-center">500ms</div>
+            </div>
             <button
               onclick="startSimulation()"
               class="btn btn-primary mt-3"
